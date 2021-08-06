@@ -1,10 +1,11 @@
 var trackInput = document.querySelector("#searchInput");
 var searchButton = document.querySelector("#searchButton");
+var topTracksEl = document.querySelector("#searchResults");
 
 getArtist = function () {
     var apiUrl = "https://api.spotify.com/v1/search?q=" + trackInput.value + "&type=artist";
     var headers = {
-        Authorization: "Bearer BQAgai_F3COLcngzJasiaA0MFrAJp0aWWKO-Y4b1YQ_k4D6v5_WkThdraWye6fgKp7l3YJM9JySLX1Xs16EZNrADoeMSVaciYzTJp5yheYGOytpygpJWW_8M3sfkmu9CYwM8Q5R9QQATo82b5HlSuxxxDOekukU",
+        Authorization: "Bearer BQBBDdMVWuJ-RTdLgzfyAf5cuRkLO3yem8LwAZqkAkZItGmyHL3tUfCseSxm1waRj1jQkAgigUfM_hrw3VfP2ALicvyV7WUkzdM0O3IwGQ8KZwgPiJxtyz_BBrDf15K8wk_fuE0hPpmpWzLha-OCnZa_U0LnmAc",
         Accept: "application/json"
     }
     fetch(apiUrl, { headers: headers }).then(function (response) {
@@ -12,12 +13,13 @@ getArtist = function () {
         return (response.json());
     }).then(function (data) {
         console.log(data);
-
+        var artistName = data.artists.items[0].name;
         var artistId = data.artists.items[0].id;
         console.log(artistId);
+        console.log(artistName);
         var apiUrl = "https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?market=US";
         var headers = {
-            Authorization: "Bearer BQAgai_F3COLcngzJasiaA0MFrAJp0aWWKO-Y4b1YQ_k4D6v5_WkThdraWye6fgKp7l3YJM9JySLX1Xs16EZNrADoeMSVaciYzTJp5yheYGOytpygpJWW_8M3sfkmu9CYwM8Q5R9QQATo82b5HlSuxxxDOekukU",
+            Authorization: "Bearer BQBBDdMVWuJ-RTdLgzfyAf5cuRkLO3yem8LwAZqkAkZItGmyHL3tUfCseSxm1waRj1jQkAgigUfM_hrw3VfP2ALicvyV7WUkzdM0O3IwGQ8KZwgPiJxtyz_BBrDf15K8wk_fuE0hPpmpWzLha-OCnZa_U0LnmAc",
             Accept: "application/json"
         }
         fetch(apiUrl, { headers: headers }).then(function (response) {
@@ -25,6 +27,8 @@ getArtist = function () {
             return (response.json());
         }).then(function(data) {
         console.log(data);
+        console.log(data.tracks[0].name)
+        topTracksEl.innerHTML = ["Top five songs for " + artistName + ":" + data.tracks[0].name, data.tracks[1].name, data.tracks[2].name, data.tracks[3].name, data.tracks[4].name];
         })
     })
 };
