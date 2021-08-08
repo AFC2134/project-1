@@ -6,19 +6,19 @@ var accessToken = "Bearer BQBWEX3eco0ao-DzfnzLkTjyKkhLw5w25jlg-QBdabG-Zs04O04ObC
 getArtist = function () {
     topTracksEl.innerHTML = "";
     artistLinkEl.innerHTML = "";
-
+    
     var apiUrl = "https://api.spotify.com/v1/search?q=" + trackInput.value + "&type=artist";
     var headers = {
         Authorization: accessToken,
         Accept: "application/json"
     }
     fetch(apiUrl, { headers: headers }).then(function (response) {
-        return (response.json());
-    }).then(function (data) {
-        if(artistName == undefined) {
-            console.log("Sorry that artist was not found try again!");
-            return
+        if(response.ok) {
+        return (response.json()); 
+        } else {
+            alert("Artist Not Found Try Again!")
         }
+    }).then(function (data) {
         var artistName = data.artists.items[0].name;
         var artistId = data.artists.items[0].id;
         var artistLink = data.artists.items[0].external_urls.spotify;
