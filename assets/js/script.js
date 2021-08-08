@@ -2,7 +2,7 @@ var trackInput = document.querySelector("#searchInput");
 var searchButton = document.querySelector("#searchButton");
 var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
-var accessToken = "Bearer BQA2lQVgHlFmk8Wq5vlsY4VYFwqkZcSg1CD4U9JZYob0prRrVzm330ImVmd65qERFhpZNhA9VmlXj532pBY8sNDzrRYk2yA4AFEHs8oHPnYLArazK-ZqnpB-9GqnOjCBjzVLdXZ5W6A4sVnLC-DrOaiwNXD1WAk";
+var accessToken = "Bearer BQBWEX3eco0ao-DzfnzLkTjyKkhLw5w25jlg-QBdabG-Zs04O04ObCvD3K-wYvGro-HbNkFKiy1EkCEhs_fi2_qoCL6vTYHL_b_h-eahRaIHq8AGh8IEKGihkM1UaQebcSXaStTyuO4SuIT7GkHX1glqCS26ZZU";
 getArtist = function () {
     topTracksEl.innerHTML = "";
     artistLinkEl.innerHTML = "";
@@ -15,6 +15,10 @@ getArtist = function () {
     fetch(apiUrl, { headers: headers }).then(function (response) {
         return (response.json());
     }).then(function (data) {
+        if(artistName == undefined) {
+            console.log("Sorry that artist was not found try again!");
+            return
+        }
         var artistName = data.artists.items[0].name;
         var artistId = data.artists.items[0].id;
         var artistLink = data.artists.items[0].external_urls.spotify;
