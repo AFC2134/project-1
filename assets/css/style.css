@@ -1,5 +1,9 @@
 
 
 body {
-    flex-wrap: wrap;
+    background-image: URL(assets\images\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg)
+
+}
+body {
+    background-color: dimgray;
 }
