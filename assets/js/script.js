@@ -4,7 +4,7 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQA-c7XwAxGtuew5vhM1BV1GvlvcFyNvEAAFbeLSf_v4jcyb0iqJE84RUnyTgYyPzfYGyQjNRNL6yUTH7ADN3Gz7YpPv2THWBbGGwfPOuPsaa4IW63MLg4-hcXLk6N03jjAXNTRbF2sxtqklPk4a6fpS6G_lvmU";
+var accessToken = "Bearer BQDPYuFjrEVk7gzd9jPI2DJgfODUjnU7f_wbzY7CXie89iu9JscYMNgv5269X5WTVP1n8SUP91eyjpx5moMJ9UT-2cSjQD9CsooW3QWgHtm8NBL9pqDfK_qw-6Uy_yaYP6y7hOL33w_N9xSfYGsNPlcuBA9R39c";
 
 getArtist = function () {
     topTracksEl.innerHTML = "";
@@ -23,7 +23,6 @@ getArtist = function () {
             return
          }          
     }).then(function (data) {
-        console.log(data.artists.total);
         if(data.artists.total === 0) {
             modal.style.display = "block";
             console.log("showModal function 3 fired"); 
