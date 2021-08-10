@@ -4,9 +4,10 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQDPYuFjrEVk7gzd9jPI2DJgfODUjnU7f_wbzY7CXie89iu9JscYMNgv5269X5WTVP1n8SUP91eyjpx5moMJ9UT-2cSjQD9CsooW3QWgHtm8NBL9pqDfK_qw-6Uy_yaYP6y7hOL33w_N9xSfYGsNPlcuBA9R39c";
+var accessToken = "Bearer BQCcFQvsjMrRSOJVMf26rpssZEHmsNhy-R0s8kBOqBXSGdnXxfxLH0DwpBLQFfMUhxOV3oy0W0XpsF-wQ9s4t8dXS6gRUnTqcwqX4QnMrvMExpb4QKw2uXc3pbWZlCHwK1dfIldJRQgtGeRVz0DaoYYzEUZIqsc";
 
 getArtist = function () {
+    console.log('here!!')
     topTracksEl.innerHTML = "";
     artistLinkEl.innerHTML = "";
     var apiUrl = "https://api.spotify.com/v1/search?q=" + trackInput.value + "&type=artist";
@@ -55,7 +56,7 @@ getArtist = function () {
     })
 };
 
-closeModal = function() {
+var closeModal = function() {
     modal.style.display = "none";
 }
 
