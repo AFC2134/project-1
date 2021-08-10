@@ -2,19 +2,33 @@ var trackInput = document.querySelector("#searchInput");
 var searchButton = document.querySelector("#searchButton");
 var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
-var accessToken = "Bearer BQCToKPsHOgpGzWS6ZSzMIEDZmTWsVkMOQ_4pYdz2iX7UkVCMWxiK_c4Wja6mpj7Ex2F51ABPdqgC_bpCIJ04p_yaacgjFkg_rhHtlorfZUMCUjZKQnxd_Xi46SKAIM0gvXbVSD8uI7YkuZiSbQZN_nSTFaPY70";
+var modal = document.querySelector("#myModal");
+var span = document.querySelector(".close");
+var accessToken = "Bearer BQDPYuFjrEVk7gzd9jPI2DJgfODUjnU7f_wbzY7CXie89iu9JscYMNgv5269X5WTVP1n8SUP91eyjpx5moMJ9UT-2cSjQD9CsooW3QWgHtm8NBL9pqDfK_qw-6Uy_yaYP6y7hOL33w_N9xSfYGsNPlcuBA9R39c";
+
 getArtist = function () {
     topTracksEl.innerHTML = "";
     artistLinkEl.innerHTML = "";
-
     var apiUrl = "https://api.spotify.com/v1/search?q=" + trackInput.value + "&type=artist";
     var headers = {
         Authorization: accessToken,
         Accept: "application/json"
     }
     fetch(apiUrl, { headers: headers }).then(function (response) {
-        return (response.json());
+        if (response.ok) {
+            return (response.json());
+         } else {
+            modal.style.display = "block";
+            console.log("showModal function 1 fired"); 
+            return
+         }          
     }).then(function (data) {
+        if(data.artists.total === 0) {
+            modal.style.display = "block";
+            console.log("showModal function 3 fired"); 
+            return   
+        }
+
         var artistName = data.artists.items[0].name;
         var artistId = data.artists.items[0].id;
         var artistLink = data.artists.items[0].external_urls.spotify;
@@ -24,8 +38,9 @@ getArtist = function () {
             Accept: "application/json"
         }
         fetch(apiUrl, { headers: headers }).then(function (response) {
-            console.log(response);
+            if (response.ok) {
             return (response.json());
+             } 
         }).then(function (data) {
             var anchor = document.createElement('a');
             var linkText = document.createTextNode("Click here to visit " + artistName + "'s page!");
@@ -40,5 +55,9 @@ getArtist = function () {
     })
 };
 
+closeModal = function() {
+    modal.style.display = "none";
+}
 
 searchButton.addEventListener("click", getArtist);
+span.addEventListener("click", closeModal)
