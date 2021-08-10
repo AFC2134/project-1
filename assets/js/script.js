@@ -18,16 +18,16 @@ getArtist = function () {
     fetch(apiUrl, { headers: headers }).then(function (response) {
         if (response.ok) {
             return (response.json());
-         } else {
+        } else {
             modal.style.display = "block";
-            console.log("showModal function 1 fired"); 
+            console.log("showModal function 1 fired");
             return
-         }          
+        }
     }).then(function (data) {
-        if(data.artists.total === 0) {
+        if (data.artists.total === 0) {
             modal.style.display = "block";
-            console.log("showModal function 3 fired"); 
-            return   
+            console.log("showModal function 3 fired");
+            return
         }
 
         var artistName = data.artists.items[0].name;
@@ -40,8 +40,8 @@ getArtist = function () {
         }
         fetch(apiUrl, { headers: headers }).then(function (response) {
             if (response.ok) {
-            return (response.json());
-             } 
+                return (response.json());
+            }
         }).then(function (data) {
             var anchor = document.createElement('a');
             var linkText = document.createTextNode("Click here to visit " + artistName + "'s page!");
@@ -56,7 +56,7 @@ getArtist = function () {
     })
 };
 
-var closeModal = function() {
+var closeModal = function () {
     modal.style.display = "none";
 }
 
@@ -67,16 +67,27 @@ span.addEventListener("click", closeModal)
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
 var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
-var getLyrics = function() {
+var getLyrics = function () {
     console.log("getLyrics fired");
-    var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_artist=kanye&q_track=ultralight&apikey=d11b6b82c9f6b2a47b420a9de513631e"
-    
-    fetch(apiUrl).then(function(response) {
+    var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=" + musicxInput.value + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+
+    fetch(apiUrl, { mode: "cors" }).then(function (response) {
         return response.json()
-        
-    }).then(function(data) {
+
+    }).then(function (data) {
         console.log(data);
-    })  
+        var trackId = data.message.body.track_list[0].track.track_id;
+        console.log(trackId);
+
+        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+
+        fetch(apiUrl, { mode: "cors" }).then(function (response) {
+            return response.json()
+
+        }).then(function (data) {
+            console.log(data);
+        })
+    })
 }
 
 
