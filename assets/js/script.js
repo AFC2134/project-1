@@ -67,9 +67,11 @@ span.addEventListener("click", closeModal)
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
 var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
+var lyricsResultsEl = document.querySelector("#lyricsResultsEl")
 var getLyrics = function () {
     console.log("getLyrics fired");
-    var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=" + musicxInput.value + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+    var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track_artist=" + musicxInput.value + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+    console.log(musicxInput.value);
 
     fetch(apiUrl, { mode: "cors" }).then(function (response) {
         return response.json()
@@ -85,6 +87,9 @@ var getLyrics = function () {
             return response.json()
 
         }).then(function (data) {
+            var lyricsText = document.createTextNode(data)
+            var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
+            console.log(lyrics)
             console.log(data);
         })
     })
