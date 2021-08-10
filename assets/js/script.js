@@ -62,3 +62,14 @@ var closeModal = function() {
 
 searchButton.addEventListener("click", getArtist);
 span.addEventListener("click", closeModal)
+
+//Begin the musicx api logic
+var musicxInput = document.querySelector("#eventField");
+var musicxBtn = document.querySelector("#eventSearch");
+
+var getLyrics = function() {
+    console.log("getLyrics fired");
+}
+
+
+musicxBtn.addEventListener("click", getLyrics)
