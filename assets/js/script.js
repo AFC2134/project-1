@@ -66,9 +66,18 @@ span.addEventListener("click", closeModal)
 //Begin the musicx api logic
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
-
+var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
 var getLyrics = function() {
     console.log("getLyrics fired");
+    var apiUrl = "http://api.musixmatch.com/ws/1.1/track.search?q_artist=kanye&q_track=ultralight&apikey=d11b6b82c9f6b2a47b420a9de513631e"
+
+    
+    fetch(apiUrl).then(function(response) {
+        return response.json()
+        
+    }).then(function(data) {
+        console.log(data);
+    })  
 }
 
 
