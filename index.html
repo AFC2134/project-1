@@ -6,17 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css...CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <title>Document</title>
 </head>
 <header>
-   Project 1 
+   <nav>
+    <div class="nav-wrapper large purple flow-text">
+      <a href="#" class="brand-logo right">GIG MASTER</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="https://www.pandora.com/genre/new-hip-hop">Hip-Hop</a></li>
+        <li><a href="https://www.pandora.com/genre/rbsoul">RnB</a></li>
+        <li><a href="https://www.pandora.com/genre/classic-rock">Rock</a></li>
+        <li><a href="https://www.pandora.com/genre/new-pop">Pop</a></li>
+        <li><a href="https://www.pandora.com/genre/bebop">Jazz</a></li>
+        <li><a href="https://www.pandora.com/playlist/PL:11715571:1753549601">Rap</a></li>
+        <li><a href="https://www.pandora.com/genre/latin-club">Latin</a></li>
+        <li><a href="https://www.pandora.com/genre/reggae">Reggae</a></li>
+        <li><a href="https://www.pandora.com/genre/funk">Funk</a></li>
+        <li><a href="https://www.pandora.com/genre/electro-house">Electro</a></li>
+        <li><a href="https://www.pandora.com/genre/neo-soul ">Neo Soul</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
 
 <body>
-    <div>
-        <input type="search" id="searchInput">
-        <button type ="submit" name = "submitBtn" id = "searchButton">
-            <h1>Submit</h1>
+    <div class="row">
+    <div class="col s6 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="assets\images\steve-harvey-LUMT0EeNnjE-unsplash.jpg">
+          <span class="card-title">FIND NEW MUSIC!</span>
+        </div>
+        <div class="card-content">
+          <p class='flow-text'>Welcome, Search one of the webs Largest music databases by Genre, Artist, or Song. Once you Have your new tune, instantly find the sheet music or tabs below! FOR FREE! </p>
+        </div>
+        <div class="card-action">
+          <a href="#">Powered by Pandora</a>
+          <input type="search" id="searchInput">
+        <button type ="submit" name = "submitBtn" id = "searchButton" class= 'btn left'> SUBMIT
         </button>
     </div>
 
@@ -30,21 +65,66 @@
     </div>
     <!--div container with search results-->
     <div id = "searchResults" class = "musicResults">
+        </div>
+      </div>
     </div>
-    <div id = "artistLink"></div>
+  </div>
+  <div class="row">
+    <div class="col s6 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="assets\images\dayne-topkin-cB10K2ugb-4-unsplash (1).jpg">
+          <span class="card-title black-text text-darken-4">FIND NEW MUSIC!</span>
+        </div>
+        <div class="card-content">
+          <p class='flow-text'> Now you've found your tune, instantly find the sheet music or tabs FOR FREE! Eneter in a song in the field below and click Submit.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Powered by Songster</a>
+          <input type="search" id="eventField">
+        <button type ="submit" name = "eventSearch" id = "eventSearch" class= 'btn left'> SUBMIT
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+            
+    <div><h3 class='nav-wrapper purple large center-align white-text text-darken-4'>Have a Gig and need to learn a tune quickly? We're here for ya,
+        just a click away from one of the largest Sheet music databases on the Web! 
+        Just want to find some new music, we got that too... You can quickly search by Artist, Song, or Genre!</h3> </div>
+    <img src="assets\images\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg" class='responsive-img background'>
+    </div>
 
     <div>
-        <input type = "searchEvent" id = "eventField">
-        <button type = "submit" id = "eventSearch">
-            <h1>Submit</h1>
-        </button>
+       
     </div>
-
-    <footer>
-
-    </footer>
-
+     <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
+<footer class="page-footer purple">
+    <div class="container purple">
+      <div class="row">
+        <div class="col l6 s12">
+          <h4 class="white-text">Contributions</h4>
+          <p class="grey-text text-lighten-4">A colaberative effort.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Other works</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Benicio Lopez</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Vanessa Nguyen</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Albert Shih</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Alexander Cooney</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2021 A cooneyworks production. Cooneycorp LLC.
+      </div>
+    </div>
+  </footer>
 </html>

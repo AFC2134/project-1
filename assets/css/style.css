@@ -35,3 +35,9 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+
+body {
+    background-image: URL(assets\images\john-matychuk-gUK3lA3K7Yo-unsplash.jpg);
+    background-color: dimgray;
+}
