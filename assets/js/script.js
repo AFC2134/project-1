@@ -79,6 +79,10 @@ var getLyrics = function () {
 
     }).then(function (data) {
         console.log(data);
+        if(data.message.header.status_code != 200) {
+            alert("Lyrics not found try again!")
+            return
+        }
         var trackId = data.message.body.track_list[0].track.track_id;
         console.log(trackId);
 
@@ -88,6 +92,10 @@ var getLyrics = function () {
             return response.json()
 
         }).then(function (data) {
+            if(data.message.header.status_code != 200) {
+                alert("Lyrics not found try again!")
+                return
+            }
             var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
             console.log(lyrics)
             console.log(data);
