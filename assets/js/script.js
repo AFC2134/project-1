@@ -4,7 +4,7 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQBoFykQRFnDO9aLa8fSj71CZdqsqAJEMOSh2i_e2GP6ODjf0wAXZHJM7e_TUHrvlhaCq8B3bffiucbvELHyG2doJ7XGFrApr5UtVmT5r5Lym45ZJKpjLvtjI3WzeEvGzBB1_L5NulnZB3t6LcQZrtLhurdUWDo";
+var accessToken = "Bearer BQBUetjYLCIiM6l-cN8yiH03HZ112g0CeU8kzOyx11D11d3Cw85YR75GUBroAkTwt_hG-FIk7ugYytmn7YOkv2klpBL5fNrvsWptKGsqRFLq4n_WpVxVJzdiAWFrP3J6oxX7gCXQP_XCBepriX7Gh7Fkdn20nEw";
 
 getArtist = function () {
     console.log('here!!')
@@ -79,23 +79,23 @@ var getLyrics = function () {
 
     }).then(function (data) {
         console.log(data);
-        // if(data.message.header.status_code != 200) {
-        //     alert("Lyrics not found try again!")
-        //     return
-        // }
+        if(data.message.header.status_code != 200) {
+            alert("Lyrics not found try again!")
+            return
+        }
         var trackId = data.message.body.track_list[0].track.track_id;
         console.log(trackId);
 
-        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=f43c43e67f94e25a7be4cdc688e4bd35";
 
         fetch(apiUrl, { mode: "cors" }).then(function (response) {
             return response.json()
 
         }).then(function (data) {
-            // if(data.message.header.status_code != 200) {
-            //     alert("Lyrics not found try again!")
-            //     return
-            // }
+            if(data.message.header.status_code != 200) {
+                alert("Lyrics not found try again!")
+                return
+            }
             var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
             console.log(lyrics)
             console.log(data);
