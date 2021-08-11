@@ -92,10 +92,10 @@ var getLyrics = function () {
             return response.json()
 
         }).then(function (data) {
-            if(data.message.header.status_code != 200) {
-                alert("Lyrics not found try again!")
-                return
-            }
+            // if(data.message.header.status_code != 200) {
+            //     alert("Lyrics not found try again!")
+            //     return
+            // }
             var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
             console.log(lyrics)
             console.log(data);
