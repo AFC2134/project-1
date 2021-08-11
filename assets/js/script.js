@@ -4,7 +4,7 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQCcFQvsjMrRSOJVMf26rpssZEHmsNhy-R0s8kBOqBXSGdnXxfxLH0DwpBLQFfMUhxOV3oy0W0XpsF-wQ9s4t8dXS6gRUnTqcwqX4QnMrvMExpb4QKw2uXc3pbWZlCHwK1dfIldJRQgtGeRVz0DaoYYzEUZIqsc";
+var accessToken = "Bearer BQBoFykQRFnDO9aLa8fSj71CZdqsqAJEMOSh2i_e2GP6ODjf0wAXZHJM7e_TUHrvlhaCq8B3bffiucbvELHyG2doJ7XGFrApr5UtVmT5r5Lym45ZJKpjLvtjI3WzeEvGzBB1_L5NulnZB3t6LcQZrtLhurdUWDo";
 
 getArtist = function () {
     console.log('here!!')
@@ -18,16 +18,16 @@ getArtist = function () {
     fetch(apiUrl, { headers: headers }).then(function (response) {
         if (response.ok) {
             return (response.json());
-         } else {
+        } else {
             modal.style.display = "block";
-            console.log("showModal function 1 fired"); 
+            console.log("showModal function 1 fired");
             return
-         }          
+        }
     }).then(function (data) {
-        if(data.artists.total === 0) {
+        if (data.artists.total === 0) {
             modal.style.display = "block";
-            console.log("showModal function 3 fired"); 
-            return   
+            console.log("showModal function 3 fired");
+            return
         }
 
         var artistName = data.artists.items[0].name;
@@ -40,8 +40,8 @@ getArtist = function () {
         }
         fetch(apiUrl, { headers: headers }).then(function (response) {
             if (response.ok) {
-            return (response.json());
-             } 
+                return (response.json());
+            }
         }).then(function (data) {
             var anchor = document.createElement('a');
             var linkText = document.createTextNode("Click here to visit " + artistName + "'s page!");
@@ -56,9 +56,53 @@ getArtist = function () {
     })
 };
 
-var closeModal = function() {
+var closeModal = function () {
     modal.style.display = "none";
 }
 
 searchButton.addEventListener("click", getArtist);
 span.addEventListener("click", closeModal)
+
+//Begin the musicx api logic
+var musicxInput = document.querySelector("#eventField");
+var musicxBtn = document.querySelector("#eventSearch");
+var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
+var lyricsResultsEl = document.querySelector("#lyricsResultsEl")
+var getLyrics = function () {
+    lyricsResultsEl.innerHTML = "";
+    console.log("getLyrics fired");
+    var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track_artist=" + musicxInput.value + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+    console.log(musicxInput.value);
+
+    fetch(apiUrl, { mode: "cors" }).then(function (response) {
+        return response.json()
+
+    }).then(function (data) {
+        console.log(data);
+        if(data.message.header.status_code != 200) {
+            alert("Lyrics not found try again!")
+            return
+        }
+        var trackId = data.message.body.track_list[0].track.track_id;
+        console.log(trackId);
+
+        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+
+        fetch(apiUrl, { mode: "cors" }).then(function (response) {
+            return response.json()
+
+        }).then(function (data) {
+            if(data.message.header.status_code != 200) {
+                alert("Lyrics not found try again!")
+                return
+            }
+            var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
+            console.log(lyrics)
+            console.log(data);
+            lyricsResultsEl.innerHTML = lyrics
+        })
+    })
+}
+
+
+musicxBtn.addEventListener("click", getLyrics)
