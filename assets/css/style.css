@@ -19,7 +19,7 @@
     padding: 20px;
     border: 1px solid #888;
     width: 40%; /* Could be more or less, depending on screen size */
-    background-image: image(assets\images\jace-afsoon--iKrBACW3lQ-unsplash.jpg);
+    background-image: url(assets\images\jace-afsoon--iKrBACW3lQ-unsplash.jpg);
   }
   
   /* The Close Button */
@@ -42,4 +42,9 @@ body {
    background-image: url("assets\images\jace-afsoon--iKrBACW3lQ-unsplash.jpg");
     background-color: dimgray;
     font-family: 'Times New Roman', Times, serif;
+}
+.nav-wrapper {
+  justify-self: start;
+}
+.header-extend {
 }
