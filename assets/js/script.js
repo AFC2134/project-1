@@ -4,10 +4,10 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQBW2vKcyfNyQ6SLJ3rWvOzA8B74D_ps8ylaMISkZTJJXLPKRXh24OJKBsuoY5zUSVLdnHqaNxkvBKd4TFGdA8kq7YKYe5ZOQw0zsI8LdtwYHmp2soLjAfZ7xTGqPPKDofrk2zj1SyQ1_LKtbdenFoTadrgft-8";
+var accessToken = "Bearer BQAAHRlSx-SshnbBHQmUZwDpV6pgvCVpOnQbOkQ4hJIhfjaDwedPyIs3mSiU-SNkoXx6KQBYgXm5ojhGcNZN0_CcQVkiqfLmOhmwjs52UN3KFe96UyYhzbnvtcummCeqALOd1BUw7AGjP_jEofJwNOUL2vzYNnk";
 
 getArtist = function () {
-    console.log('here!!')
+    localStorage.setItem("artist", trackInput.value);
     topTracksEl.innerHTML = "";
     artistLinkEl.innerHTML = "";
     var apiUrl = "https://api.spotify.com/v1/search?q=" + trackInput.value + "&type=artist";
@@ -69,6 +69,7 @@ var musicxBtn = document.querySelector("#eventSearch");
 var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
 var lyricsResultsEl = document.querySelector("#lyricsResultsEl")
 var getLyrics = function () {
+    localStorage.setItem("lyricsSearch", musicxInput.value);
     lyricsResultsEl.innerHTML = "";
     console.log("getLyrics fired");
     var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track_artist=" + musicxInput.value + "&apikey=" + accessKey;
