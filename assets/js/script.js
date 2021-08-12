@@ -4,7 +4,7 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQBUetjYLCIiM6l-cN8yiH03HZ112g0CeU8kzOyx11D11d3Cw85YR75GUBroAkTwt_hG-FIk7ugYytmn7YOkv2klpBL5fNrvsWptKGsqRFLq4n_WpVxVJzdiAWFrP3J6oxX7gCXQP_XCBepriX7Gh7Fkdn20nEw";
+var accessToken = "Bearer BQDdrkZlCGfnTN2we-vFV19-DqiUD8MWKFFgBz5xQthx_Q95wZlwPQsQfS69Td4d6enBymqeU5COOMQ4IVlPcllhrUziYPw8I50AaFznGMAKvP_noNkYpP27tc-hE7wi7t80f3rAmMXTPwG-JDTxe6NB4bo8PEk";
 
 getArtist = function () {
     console.log('here!!')
@@ -86,7 +86,7 @@ var getLyrics = function () {
         var trackId = data.message.body.track_list[0].track.track_id;
         console.log(trackId);
 
-        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=f996d9f726dc7974a93394867981c3db";
+        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=";
 
         fetch(apiUrl, { mode: "cors" }).then(function (response) {
             return response.json()
