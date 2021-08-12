@@ -86,7 +86,7 @@ var getLyrics = function () {
         var trackId = data.message.body.track_list[0].track.track_id;
         console.log(trackId);
 
-        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=f43c43e67f94e25a7be4cdc688e4bd35";
+        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=f996d9f726dc7974a93394867981c3db";
 
         fetch(apiUrl, { mode: "cors" }).then(function (response) {
             return response.json()
