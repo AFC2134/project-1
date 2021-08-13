@@ -58,6 +58,7 @@ getArtist = function () {
 
 var closeModal = function () {
     modal.style.display = "none";
+    
 }
 
 searchButton.addEventListener("click", getArtist);
@@ -66,12 +67,14 @@ span.addEventListener("click", closeModal)
 //Begin the musicx api logic
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
-var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
-var lyricsResultsEl = document.querySelector("#lyricsResultsEl")
+var accessKey = "f43c43e67f94e25a7be4cdc688e4bd35"
+var lyricsResultsEl = document.querySelector("#lyricsResultsEl");
+var lyricModal = document.querySelector("#lyricModal");
+var lyricSpan = document.querySelector(".lyricClose")
+
 var getLyrics = function () {
     lyricsResultsEl.innerHTML = "";
-    console.log("getLyrics fired");
-    var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track_artist=" + musicxInput.value + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+    var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track_artist=" + musicxInput.value + "&apikey=f43c43e67f94e25a7be4cdc688e4bd35";
     console.log(musicxInput.value);
 
     fetch(apiUrl, { mode: "cors" }).then(function (response) {
@@ -80,13 +83,17 @@ var getLyrics = function () {
     }).then(function (data) {
         console.log(data);
         if(data.message.header.status_code != 200) {
-            alert("Lyrics not found try again!")
+            console.log("Lyrics not found try again!")
             return
+        }
+        else{
+            lyricModal.style.display = "block";
+            musicxInput.value = "Type song and artist name";
         }
         var trackId = data.message.body.track_list[0].track.track_id;
         console.log(trackId);
 
-        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=d11b6b82c9f6b2a47b420a9de513631e";
+        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + trackId + "&apikey=f43c43e67f94e25a7be4cdc688e4bd35";
 
         fetch(apiUrl, { mode: "cors" }).then(function (response) {
             return response.json()
@@ -96,13 +103,22 @@ var getLyrics = function () {
                 alert("Lyrics not found try again!")
                 return
             }
-            var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
+            var lyrics = data.message.body.lyrics.lyrics_body
             console.log(lyrics)
             console.log(data);
             lyricsResultsEl.innerHTML = lyrics
+
+            //If no results found show modal
+            if(lyricsResultsEl.innerHTML == ""){
+                console.log();
+                lyricModal.style.display = "block";
+            }
         })
+
+        
     })
 }
 
 
 musicxBtn.addEventListener("click", getLyrics)
+lyricSpan.addEventListener("click", closeModal)

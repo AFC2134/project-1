@@ -28,9 +28,23 @@
     font-size: 28px;
     font-weight: bold;
   }
+
+  .lyricClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
   
   .close:hover,
   .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .lyricClose:hover,
+  .lyricClose:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
