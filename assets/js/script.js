@@ -67,7 +67,7 @@ span.addEventListener("click", closeModal)
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
 var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
-var lyricsResultsEl = document.querySelector("#lyricsResultsEl")
+var lyricsResultsEl = document.querySelector("#lyricsBottom")
 var getLyrics = function () {
     localStorage.setItem("lyricsSearch", musicxInput.value);
     lyricsResultsEl.innerHTML = "";
@@ -117,6 +117,5 @@ var getLyrics = function () {
         })
     })
 }
-
 
 musicxBtn.addEventListener("click", getLyrics)
