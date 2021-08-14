@@ -59,7 +59,9 @@ body {
 }
 
 body {
-  background-image: url("..\assets\images\background.jpg");
-  background-size: cover;
+  background-repeat:no-repeat;background-image: url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
+  div.image {
+    content:url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
+ }
   background-color: dimgray;
 }

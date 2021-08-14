@@ -104,5 +104,7 @@ var getLyrics = function () {
     })
 }
 
-
+div.image {
+    content:url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
+ }
 musicxBtn.addEventListener("click", getLyrics)
