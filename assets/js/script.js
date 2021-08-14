@@ -80,7 +80,7 @@ var getLyrics = function () {
             return (response.json());
         } else {
             var modalText = document.querySelector("#modalText");
-            modalText.textContent = "Lyrics Not Found!"
+            modalText.textContent = "Sorry Your Temporary Server expired, try refreshing here https://cors-anywhere.herokuapp.com/corsdemo"
             modal.style.display = "block";
             return   
         }
