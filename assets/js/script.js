@@ -67,7 +67,7 @@ span.addEventListener("click", closeModal)
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
 var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
-var lyricsResultsEl = document.querySelector("#lyricsResultsEl")
+var lyricsResultsEl = document.querySelector("#lyricsBottom")
 var getLyrics = function () {
     lyricsResultsEl.innerHTML = "";
     console.log("getLyrics fired");
@@ -99,18 +99,9 @@ var getLyrics = function () {
             var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
             console.log(lyrics)
             console.log(data);
-            lyricsResultsEl.innerHTML = lyrics
+            lyricsResultsEl.innerHTML = 'This is test lyrics'
         })
     })
 }
-const article = document.querySelector('#lyricsRender');
-// The following would also work:
-// const article = document.getElementById("electric-cars")
 
-article.dataset.columns // "3"
-article.dataset.indexNumber // "12314"
-article.dataset.parent // "cars"
-div.image {
-    content:url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
- }
 musicxBtn.addEventListener("click", getLyrics)
