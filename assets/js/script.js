@@ -99,7 +99,7 @@ var getLyrics = function () {
             var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
             console.log(lyrics)
             console.log(data);
-            lyricsResultsEl.innerHTML = 'This is test lyrics'
+            lyricsResultsEl.innerHTML = lyrics
         })
     })
 }
