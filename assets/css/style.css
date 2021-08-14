@@ -44,7 +44,7 @@
 body {
    background-image: url("assets\images\jace-afsoon--iKrBACW3lQ-unsplash.jpg");
     background-color: dimgray;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     }
 .nav-wrapper {
   justify-self: start;
@@ -58,8 +58,24 @@ body {
   flex-grow: ;
 }
 
+.logo {
+  box-shadow: black;
+  opacity: 50%;
+  place-items: right;
+  border-top-left-radius: 7px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 8px;
+  height: 10px;
+}
+.bottom-text {
+  padding: 50px
+}
+
 body {
-  background-image: url("..\assets\images\background.jpg");
-  background-size: cover;
+  background-repeat:no-repeat;background-image: url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
+  div.image {
+    content:url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
+ }
   background-color: dimgray;
 }

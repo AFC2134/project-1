@@ -4,7 +4,7 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQB93I3ILIWREcNnEeYz05pPgajvY6xuaCz-69OJAw0QDz9iRp7plrkhTWDf8kOPXmDal1Y7uaL2COoY5xT6XnVoYSa0yD2eSFx15R9_5_pRrLnNsodoedRPT1FlLAUxoDUxRnB2fN0bFchSbhHYxT34qyv7flI";
+var accessToken = "Bearer BQCl80ORkfC-WcPeygZFJiOsgRdelXqLmc6Y_BnVXZKChq2EJccBMoLWX18sp13ZoswhQwhQtH9VQ7IQIu0_tIHujPfkXshiNh6yFjE_gd5gP7Z9OVudmDpXNtpAPrzFyCc0Zg2G0Q8k4SjoTvdSwQWmGuOcEjo";
 
 getArtist = function () {
     localStorage.setItem("artist", trackInput.value);
@@ -67,7 +67,7 @@ span.addEventListener("click", closeModal)
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
 var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
-var lyricsResultsEl = document.querySelector("#lyricsResultsEl")
+var lyricsResultsEl = document.querySelector("#lyricsBottom")
 var getLyrics = function () {
     localStorage.setItem("lyricsSearch", musicxInput.value);
     lyricsResultsEl.innerHTML = "";
@@ -117,6 +117,5 @@ var getLyrics = function () {
         })
     })
 }
-
 
 musicxBtn.addEventListener("click", getLyrics)
