@@ -58,6 +58,19 @@ body {
   flex-grow: ;
 }
 
+.logo {
+  box-shadow: black;
+  opacity: 50%;
+  place-items: right;
+  border-top-left-radius: 7px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 8px;
+}
+.bottom-text {
+  padding: 50px
+}
+
 body {
   background-repeat:no-repeat;background-image: url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
   div.image {

@@ -103,7 +103,13 @@ var getLyrics = function () {
         })
     })
 }
+const article = document.querySelector('#lyricsRender');
+// The following would also work:
+// const article = document.getElementById("electric-cars")
 
+article.dataset.columns // "3"
+article.dataset.indexNumber // "12314"
+article.dataset.parent // "cars"
 div.image {
     content:url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
  }
