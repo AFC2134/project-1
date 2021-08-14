@@ -44,7 +44,7 @@
 body {
    background-image: url("assets\images\jace-afsoon--iKrBACW3lQ-unsplash.jpg");
     background-color: dimgray;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     }
 .nav-wrapper {
   justify-self: start;
@@ -66,6 +66,7 @@ body {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 8px;
+  height: 10px;
 }
 .bottom-text {
   padding: 50px
