@@ -19,6 +19,7 @@ getArtist = function () {
         if (response.ok) {
             return (response.json());
         } else {
+            modalText.textContent = "Sorry your access token expired! Try again with a diffenrent one."
             modal.style.display = "block";
             console.log("showModal function 1 fired");
             return
