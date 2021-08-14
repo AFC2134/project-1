@@ -4,7 +4,7 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQAAHRlSx-SshnbBHQmUZwDpV6pgvCVpOnQbOkQ4hJIhfjaDwedPyIs3mSiU-SNkoXx6KQBYgXm5ojhGcNZN0_CcQVkiqfLmOhmwjs52UN3KFe96UyYhzbnvtcummCeqALOd1BUw7AGjP_jEofJwNOUL2vzYNnk";
+var accessToken = "Bearer BQBJvTjl9OMi28bLuFuphfRaxa8uNIKwfD3JBseihacg248xedvhF08aSdWh-Qd1Sx2ddbKFy2VmqW3zXYrSNlCQ81ojQFFFkubPdGsU_VP_sMPRAQWcgPLuWKAvpNNeSJf8Cg404B-DHaO02XKofMdSaUuR4dY";
 
 getArtist = function () {
     localStorage.setItem("artist", trackInput.value);
@@ -76,13 +76,27 @@ var getLyrics = function () {
     console.log(musicxInput.value);
 
     fetch(apiUrl, { mode: "cors" }).then(function (response) {
-        return response.json()
+        if (response.ok) {
+            return (response.json());
+        } else {
+            var modalText = document.querySelector("#modalText");
+            modalText.textContent = "Lyrics Not Found!"
+            modal.style.display = "block";
+            return   
+        }
 
     }).then(function (data) {
         console.log(data);
         if(data.message.header.status_code != 200) {
-            alert("Lyrics not found try again!")
+            modalText.textContent = "Lyrics Not Found!"
+            modal.style.display = "block";
             return
+        }
+        if(data.message.body.track_list.length == 0) {
+            modalText.textContent = "Lyrics Not Found!"
+            modal.style.display = "block";
+            return
+            
         }
         var trackId = data.message.body.track_list[0].track.track_id;
         console.log(trackId);
@@ -94,12 +108,11 @@ var getLyrics = function () {
 
         }).then(function (data) {
             if(data.message.header.status_code != 200) {
-                alert("Lyrics not found try again!")
+                modalText.textContent = "Lyrics Not Found!"
+                modal.style.display = "block"
                 return
             }
-            var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
-            console.log(lyrics)
-            console.log(data);
+            var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright;
             lyricsResultsEl.innerHTML = lyrics
         })
     })
