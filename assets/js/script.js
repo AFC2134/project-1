@@ -69,8 +69,13 @@ span.addEventListener("click", closeModal)
 //Begin the musicx api logic
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
-var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
-var lyricsResultsEl = document.querySelector("#lyricsBottom")
+var accessKey = "d11b6b82c9f6b2a47b420a9de513631e";
+var lyricsResultsEl = document.querySelector("#lyricsBottom");
+var prevLyricsEl = document.querySelector("#prevLyricsEl");
+
+let prevSearchLyrics = localStorage.getItem("lyricsSearch") || "";
+prevLyricsEl.textContent = "Last Lyrics Searched: " + prevSearchLyrics;
+
 var getLyrics = function () {
     localStorage.setItem("lyricsSearch", musicxInput.value);
     lyricsResultsEl.innerHTML = "";
