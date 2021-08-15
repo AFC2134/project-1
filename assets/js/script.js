@@ -4,7 +4,7 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQDRrWDyF1g4PFxyNQ3osQ5uVsniGE_4aGjPcTbBIW-7MtZ6VaMxh41P6DjT5Ymb_P1WCi8w3IZu9R4MFV1wbRzS8y_s-emXaiotlt--2TjDkgSlW8idM2ExZ0cGnIDUwAoKUY5BKYiEJtBtCkLGRno8QBj4YBc";
+var accessToken = "Bearer BQAuFuBuHJrzhlU7V3ApzYYS0n0N-Bkn8_Xrg2ZV-pSnRC_rUR-zzxqi9dzR_-pLsNfaTcwCgyoj4oGKRTH2QS5eZT02C08R7NUJq6zHF2LGUeJL-E4tsd_2BNpX7QoMjuqg9xWQvgLr61dfbP_2c24fIuxPLVk";
 var prevArtist = document.querySelector("#prevArtist");
 
 let prevSearchArtist = localStorage.getItem("artist") || "";
