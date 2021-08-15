@@ -1,10 +1,10 @@
 # Karaoke King
 
 ## Table of Contents
-* [Description](https://github.com/Blopez811/karaoke-king/tree/feature/readme#description)
-* [Challenges](https://github.com/Blopez811/karaoke-king/tree/feature/readme#challenges)
-* [Technologies Used](https://github.com/Blopez811/karaoke-king/tree/feature/readme#technologies-used)
-* [Contributors](https://github.com/Blopez811/karaoke-king/tree/feature/readme#contributors)
+* [Description](https://github.com/Blopez811/karaoke-king#description)
+* [Challenges](https://github.com/Blopez811/karaoke-king#challenges)
+* [Technologies Used](https://github.com/Blopez811/karaoke-king#technologies-used)
+* [Contributors](https://github.com/Blopez811/karaoke-king#contributors)
 
 ## Description
 This application lets you search for your favorite musical artists and provides you with their top songs and a link to their Spotify page. Once you find the songs you like, this application also allows you to find the lyrics for the songs so you can sing along. Try it out yourself here:
