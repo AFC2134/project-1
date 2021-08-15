@@ -1,10 +1,10 @@
 # Karaoke King
 
 ## Table of Contents
-* [Description](link)
-* [Challenges](link)
-* [Technologies Used](link)
-* [Contributors](link)
+* [Description](https://github.com/Blopez811/karaoke-king/tree/feature/readme#description)
+* [Challenges](https://github.com/Blopez811/karaoke-king/tree/feature/readme#challenges)
+* [Technologies Used](https://github.com/Blopez811/karaoke-king/tree/feature/readme#technologies-used)
+* [Contributors](https://github.com/Blopez811/karaoke-king/tree/feature/readme#contributors)
 
 ## Description
 This application lets you search for your favorite musical artists and provides you with their top songs and a link to their Spotify page. Once you find the songs you like, this application also allows you to find the lyrics for the songs so you can sing along. Try it out yourself here:
@@ -20,5 +20,5 @@ This application lets you search for your favorite musical artists and provides 
  * Javascript
 
  ## Contributors 
- * Benicio Lopez
- * Alexander Cooney
+ * [Benicio Lopez](https://github.com/Blopez811)
+ * [Alexander Cooney](https://github.com/AFC2134)
