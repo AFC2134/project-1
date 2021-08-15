@@ -14,7 +14,7 @@
   }
   
   /* Modal Content/Box */
-  .modal-content {
+.modal-content {
     background-color: goldenrod;
     margin: 15% auto; /* 15% from the top and centered */
     font-size: large;
@@ -22,28 +22,28 @@
     padding: 10px;
     border: 8px solid #888;
     width: 40%; /* Could be more or less, depending on screen size */
-    background-image: url(assets\images\jace-afsoon--iKrBACW3lQ-unsplash.jpg);
+    background-image: url(..\\images\\jace-afsoon--iKrBACW3lQ-unsplash.jpg);
   }
   
   /* The Close Button */
-  .close {
+.close {
     color: black;
     float: right;
     font-size: 40px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
 
 
-body {
-   background-image: url("assets\images\jace-afsoon--iKrBACW3lQ-unsplash.jpg");
+  body {
     background-color: dimgray;
+    background-repeat: repeat-x;
     font-family: Georgia, 'Times New Roman', Times, serif;
     }
 .nav-wrapper {
@@ -73,9 +73,16 @@ body {
 }
 
 body {
-  background-repeat:no-repeat;background-image: url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
-  div.image {
-    content:url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
- }
-  background-color: dimgray;
+  background-repeat:no-repeat;
+  background-color:black;
+}
+
+.backImage {
+  background-image: url("..\\images\\john-matychuk-gUK3lA3K7Yo-unsplash (1).jpg");
+  height: 100vh;
+  background-size: cover;
+}
+
+footer {
+  padding-top: 700px;
 }
