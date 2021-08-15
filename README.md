@@ -4,7 +4,6 @@
 * Description
 * Challenges
 * Technologies Used
-* Usage 
 * Contributors
 
 ## Description
