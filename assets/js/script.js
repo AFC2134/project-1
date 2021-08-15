@@ -58,6 +58,7 @@ getArtist = function () {
 
 var closeModal = function () {
     modal.style.display = "none";
+    lyricModal.style.display = "none";
     
 }
 
