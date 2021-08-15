@@ -4,8 +4,11 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQCl80ORkfC-WcPeygZFJiOsgRdelXqLmc6Y_BnVXZKChq2EJccBMoLWX18sp13ZoswhQwhQtH9VQ7IQIu0_tIHujPfkXshiNh6yFjE_gd5gP7Z9OVudmDpXNtpAPrzFyCc0Zg2G0Q8k4SjoTvdSwQWmGuOcEjo";
+var accessToken = "Bearer BQDRrWDyF1g4PFxyNQ3osQ5uVsniGE_4aGjPcTbBIW-7MtZ6VaMxh41P6DjT5Ymb_P1WCi8w3IZu9R4MFV1wbRzS8y_s-emXaiotlt--2TjDkgSlW8idM2ExZ0cGnIDUwAoKUY5BKYiEJtBtCkLGRno8QBj4YBc";
+var prevArtist = document.querySelector("#prevArtist");
 
+let prevSearchArtist = localStorage.getItem("artist") || "";
+prevArtist.textContent = "Last Artist Searched: " + prevSearchArtist;
 getArtist = function () {
     localStorage.setItem("artist", trackInput.value);
     topTracksEl.innerHTML = "";
