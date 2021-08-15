@@ -23,17 +23,17 @@
         <div class="nav-wrapper large purple flow-text">
             <a href="#!" class="brand-logo right"></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down large">
-                <li><a href="https://www.pandora.com/genre/new-hip-hop">Hip-Hop</a></li>
-                <li><a href="https://www.pandora.com/genre/rbsoul">RnB</a></li>
-                <li><a href="https://www.pandora.com/genre/classic-rock">Rock</a></li>
-                <li><a href="https://www.pandora.com/genre/new-pop">Pop</a></li>
-                <li><a href="https://www.pandora.com/genre/bebop">Jazz</a></li>
-                <li><a href="https://www.pandora.com/playlist/PL:11715571:1753549601">Rap</a></li>
-                <li><a href="https://www.pandora.com/genre/latin-club">Latin</a></li>
-                <li><a href="https://www.pandora.com/genre/reggae">Reggae</a></li>
-                <li><a href="https://www.pandora.com/genre/funk">Funk</a></li>
-                <li><a href="https://www.pandora.com/genre/electro-house">Electro</a></li>
-                <li><a href="https://www.pandora.com/genre/neo-soul ">Neo Soul</a></li>
+                <li><a href="https://www.pandora.com/genre/new-hip-hop" target = "_blank">Hip-Hop</a></li>
+                <li><a href="https://www.pandora.com/genre/rbsoul" target = "_blank">RnB</a></li>
+                <li><a href="https://www.pandora.com/genre/classic-rock" target = "_blank">Rock</a></li>
+                <li><a href="https://www.pandora.com/genre/new-pop" target = "_blank">Pop</a></li>
+                <li><a href="https://www.pandora.com/genre/bebop" target = "_blank">Jazz</a></li>
+                <li><a href="https://www.pandora.com/playlist/PL:11715571:1753549601" target = "_blank">Rap</a></li>
+                <li><a href="https://www.pandora.com/genre/latin-club" target = "_blank">Latin</a></li>
+                <li><a href="https://www.pandora.com/genre/reggae" target = "_blank">Reggae</a></li>
+                <li><a href="https://www.pandora.com/genre/funk" target = "_blank">Funk</a></li>
+                <li><a href="https://www.pandora.com/genre/electro-house" target = "_blank">Electro</a></li>
+                <li><a href="https://www.pandora.com/genre/neo-soul " target = "_blank">Neo Soul</a></li>
             </ul>
             <h4 class='right-align'>KARAOKE KING</h4><img src='assets\images\e63f0c8b212c253fd78b6b6d324610c3.jpg' class='right-align small responsive-img' class='logo'>
         </div>
@@ -71,12 +71,12 @@
                         <!--Modal content-->
                         <div class="modal-content">
                             <span class="close">&times;</span>
-                            <p id =>Artist not found try again!</p>
+                            <p id = "modalText">Artist not found try again!</p>
                         </div>
                     </div>
                     <!--div container with search results-->
-                    <div id="searchResults" class="musicResults"></div>
-                    <div id = "artistLink"></div>
+                    <!-- <div class="musicResults"></div> -->
+                    
                 </div>
             </div>
         </div>
@@ -117,7 +117,11 @@
           </div>
           <div class="card-stacked">
             <div class="card-content">
-              <p id='artistBottom'>HERE WE NEED TO RENDER THE ARTISTS FROM SPOTIFY CARD</p>
+
+              <p id="searchResults"></p>
+              <div id="artistLink"></div>
+              <div id="prevArtist"></div>
+              
             </div>
             <div class="card-action">
                 <a href="https://open.spotify.com/">Spotify Web Player</a>
@@ -133,7 +137,8 @@
           </div>
           <div class="card-stacked">
             <div class="card-content">
-              <p id='lyricsBottom'>HERE WE NEED TO RENDER LYRICS FROM MusixMatch</p>
+              <p id='lyricsBottom'></p>
+              <div id="prevLyricsEl"></div>
             </div>
             <div class="card-action">
                 <a href="https://www.musixmatch.com/">MusixMatch</a>

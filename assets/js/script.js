@@ -4,10 +4,13 @@ var topTracksEl = document.querySelector("#searchResults");
 var artistLinkEl = document.querySelector("#artistLink");
 var modal = document.querySelector("#myModal");
 var span = document.querySelector(".close");
-var accessToken = "Bearer BQBW2vKcyfNyQ6SLJ3rWvOzA8B74D_ps8ylaMISkZTJJXLPKRXh24OJKBsuoY5zUSVLdnHqaNxkvBKd4TFGdA8kq7YKYe5ZOQw0zsI8LdtwYHmp2soLjAfZ7xTGqPPKDofrk2zj1SyQ1_LKtbdenFoTadrgft-8";
+var accessToken = "Bearer BQAuFuBuHJrzhlU7V3ApzYYS0n0N-Bkn8_Xrg2ZV-pSnRC_rUR-zzxqi9dzR_-pLsNfaTcwCgyoj4oGKRTH2QS5eZT02C08R7NUJq6zHF2LGUeJL-E4tsd_2BNpX7QoMjuqg9xWQvgLr61dfbP_2c24fIuxPLVk";
+var prevArtist = document.querySelector("#prevArtist");
 
+let prevSearchArtist = localStorage.getItem("artist") || "";
+prevArtist.textContent = "Last Artist Searched: " + prevSearchArtist;
 getArtist = function () {
-    console.log('here!!')
+    localStorage.setItem("artist", trackInput.value);
     topTracksEl.innerHTML = "";
     artistLinkEl.innerHTML = "";
     var apiUrl = "https://api.spotify.com/v1/search?q=" + trackInput.value + "&type=artist";
@@ -66,22 +69,42 @@ span.addEventListener("click", closeModal)
 //Begin the musicx api logic
 var musicxInput = document.querySelector("#eventField");
 var musicxBtn = document.querySelector("#eventSearch");
-var accessKey = "d11b6b82c9f6b2a47b420a9de513631e"
-var lyricsResultsEl = document.querySelector("#lyricsBottom")
+var accessKey = "d11b6b82c9f6b2a47b420a9de513631e";
+var lyricsResultsEl = document.querySelector("#lyricsBottom");
+var prevLyricsEl = document.querySelector("#prevLyricsEl");
+
+let prevSearchLyrics = localStorage.getItem("lyricsSearch") || "";
+prevLyricsEl.textContent = "Last Lyrics Searched: " + prevSearchLyrics;
+
 var getLyrics = function () {
+    localStorage.setItem("lyricsSearch", musicxInput.value);
     lyricsResultsEl.innerHTML = "";
     console.log("getLyrics fired");
     var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track_artist=" + musicxInput.value + "&apikey=" + accessKey;
     console.log(musicxInput.value);
 
     fetch(apiUrl, { mode: "cors" }).then(function (response) {
-        return response.json()
+        if (response.ok) {
+            return (response.json());
+        } else {
+            var modalText = document.querySelector("#modalText");
+            modalText.textContent = "Sorry Your Temporary Server expired, try refreshing here https://cors-anywhere.herokuapp.com/corsdemo"
+            modal.style.display = "block";
+            return   
+        }
 
     }).then(function (data) {
         console.log(data);
         if(data.message.header.status_code != 200) {
-            alert("Lyrics not found try again!")
+            modalText.textContent = "Lyrics Not Found!"
+            modal.style.display = "block";
             return
+        }
+        if(data.message.body.track_list.length == 0) {
+            modalText.textContent = "Lyrics Not Found!"
+            modal.style.display = "block";
+            return
+            
         }
         var trackId = data.message.body.track_list[0].track.track_id;
         console.log(trackId);
@@ -93,13 +116,12 @@ var getLyrics = function () {
 
         }).then(function (data) {
             if(data.message.header.status_code != 200) {
-                alert("Lyrics not found try again!")
+                modalText.textContent = "Lyrics Not Found!"
+                modal.style.display = "block"
                 return
             }
-            var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright
-            console.log(lyrics)
-            console.log(data);
-            lyricsResultsEl.innerHTML = 'This is test lyrics'
+            var lyrics = data.message.body.lyrics.lyrics_body + data.message.body.lyrics.lyrics_copyright;
+            lyricsResultsEl.innerHTML = lyrics
         })
     })
 }
